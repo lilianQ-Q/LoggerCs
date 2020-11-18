@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Logger.src.core.exceptions
+namespace noxLogger.src.core.exceptions
 {
     class IncorrectUrlException : Exception
     {
