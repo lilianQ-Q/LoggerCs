@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static Logger.Logger;
+using static noxLogger.src.Logger;
 
-namespace Logger.src.core.entities
+namespace noxLogger.src.core.entities
 {
     public class Log
     {
