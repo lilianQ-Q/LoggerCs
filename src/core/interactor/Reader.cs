@@ -1,12 +1,12 @@
-﻿using Logger.src.core.entities;
-using Logger.src.core.exceptions;
+﻿using noxLogger.src.core.entities;
+using noxLogger.src.core.exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static Logger.Logger;
+using static noxLogger.src.Logger;
 
-namespace Logger.src.core
+namespace noxLogger.src.core
 {
     public class Reader
     {
@@ -136,17 +136,18 @@ namespace Logger.src.core
                 {
                     canRead = fs.CanRead;
                 }
-                if(!canRead && Logger.Instance.enableExceptions)
+                /*if(!canRead && global::noxLogger.Instance.enableExceptions)
                 {
                     throw new NotAllowedException("Error. It seems that you are not allowed to read this file. Do you have rights on it ?");
-                }
+                }*/
             }
             else
             {
-                if (Logger.Instance.enableExceptions)
+                /*
+                if (global::noxLogger.Instance.enableExceptions)
                 {
                     throw new FileDoesntExistsException(this.path);
-                }
+                }*/
             }
             return (exists && canRead);
         }

@@ -1,10 +1,10 @@
-﻿using Logger.src.core.exceptions;
+﻿using noxLogger.src.core.exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Logger.src.core
+namespace noxLogger.src.core
 {
     public class Writer
     {
