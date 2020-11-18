@@ -2,6 +2,8 @@
 using noxLogger.src.core.entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace noxLogger.src
@@ -23,6 +25,11 @@ namespace noxLogger.src
         /// </summary>
         public List<Log> internalLogHistory { get; private set; }
 
+        /// <summary>
+        /// This is a list of the loaded modules inside the noxLogger.
+        /// </summary>
+        public List<string> loadedModules { get; private set; }
+
         #endregion
 
         #region Constructor
@@ -32,9 +39,9 @@ namespace noxLogger.src
         /// </summary>
         public Logger()
         {
-            this.loggerFilePath = "error to define";
+            this.loggerFilePath = @"C:\temp\log\";
             this.internalLogHistory = new List<Log>();
-            this.load();
+            this.LoadedModules();
         }
 
         /// <summary>
@@ -53,9 +60,10 @@ namespace noxLogger.src
         /// <summary>
         /// Method that load modules etc.
         /// </summary>
-        private void load()
+        private List<string> LoadedModules()
         {
-            //Some things here
+            throw new NotImplementedException("todo");
+            return (new List<string>());
         }
 
         #endregion

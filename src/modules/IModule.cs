@@ -7,7 +7,7 @@ namespace noxLogger.src.modules
     public interface IModule
     {
         /// <summary>
-        /// Method that allow the user to get a Module's author.
+        /// Method that allow the user to get a Module's author information.
         /// </summary>
         /// <returns></returns>
         string GetAuthor();
