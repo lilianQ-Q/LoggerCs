@@ -1,5 +1,6 @@
 ﻿using noxLogger.src.core;
 using noxLogger.src.core.entities;
+using noxLogger.src.modules;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,7 +29,7 @@ namespace noxLogger.src
         /// <summary>
         /// This is a list of the loaded modules inside the noxLogger.
         /// </summary>
-        public List<string> loadedModules { get; private set; }
+        public List<string> usedModules { get; private set; }
 
         #endregion
 
@@ -41,7 +42,6 @@ namespace noxLogger.src
         {
             this.loggerFilePath = @"C:\temp\log\";
             this.internalLogHistory = new List<Log>();
-            this.LoadedModules();
         }
 
         /// <summary>
@@ -51,19 +51,6 @@ namespace noxLogger.src
         public Logger(string loggerFilePath)
         {
             this.loggerFilePath = loggerFilePath;
-        }
-
-        #endregion
-
-        #region Loader
-
-        /// <summary>
-        /// Method that load modules etc.
-        /// </summary>
-        private List<string> LoadedModules()
-        {
-            throw new NotImplementedException("todo");
-            return (new List<string>());
         }
 
         #endregion
@@ -173,6 +160,22 @@ namespace noxLogger.src
         private bool CreatePath()
         {
             return (Writer.Instance.CreatePath(@"C:\temp\log\oui\non"));
+        }
+
+        /// <summary>
+        /// Method that allow the user to tell to the Logger that he is using this module. Useful in debugging cases.
+        /// </summary>
+        /// <param name="modulName"></param>
+        /// <returns></returns>
+        private bool AddModule(string modulName)
+        {
+            bool moduleAdded = false;
+            if (!this.usedModules.Contains(modulName))
+            {
+                moduleAdded = true;
+                this.usedModules.Add(modulName);
+            }
+            return (moduleAdded);
         }
 
         #endregion

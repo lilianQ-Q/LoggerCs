@@ -6,7 +6,24 @@ namespace noxLogger.src.modules.sqlLogger.src.core
 {
     public class SqlLogger : IModule
     {
-        public SqlLogger()
+        #region Fields
+
+        private string query { get; set; }
+
+        #endregion
+
+        #region Constructor
+
+        public SqlLogger(string query)
+        {
+            this.query = query;
+        }
+
+        #endregion
+
+        #region Methods
+
+        public string ParseSql()
         {
 
         }
@@ -15,5 +32,7 @@ namespace noxLogger.src.modules.sqlLogger.src.core
         {
             return ("Lilian Damiens - 2020");
         }
+
+        #endregion
     }
 }
