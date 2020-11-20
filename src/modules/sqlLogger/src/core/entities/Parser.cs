@@ -45,8 +45,6 @@ namespace noxLogger.src.modules.sqlLogger.src.core.entities
 
         public string StretchParse(string query)
         {
-            List<string> sqlWords = new List<string>() { "SELECT", "INSERT", "UPDATE", "DELETE" };
-            //Jsais pas putain
             return (query);
         }
 

@@ -25,7 +25,8 @@ namespace noxLogger.src.modules.sqlLogger.src.core
 
         public string ParseSql()
         {
-
+            throw new NotImplementedException("Pas encore dev");
+            return ("oui");
         }
 
         public string GetAuthor()
