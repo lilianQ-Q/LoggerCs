@@ -39,6 +39,19 @@ namespace noxLogger.src
             return (new HttpLogger(this.token));
         }
 
+        public void CheckUrl()
+        {
+            HttpLogger httpLogger = new HttpLogger("oui");
+            if (httpLogger.urlReachable())
+            {
+                Console.WriteLine("Host reachable !");
+            }
+            else
+            {
+                Console.WriteLine("Cant reach the host");
+            }
+        }
+
         #endregion
     }
 }
