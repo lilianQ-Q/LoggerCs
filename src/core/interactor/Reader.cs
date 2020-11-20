@@ -136,18 +136,17 @@ namespace noxLogger.src.core
                 {
                     canRead = fs.CanRead;
                 }
-                /*if(!canRead && global::noxLogger.Instance.enableExceptions)
+                if(!canRead && Logger.enabledException)
                 {
-                    throw new NotAllowedException("Error. It seems that you are not allowed to read this file. Do you have rights on it ?");
-                }*/
+                    throw new NotAllowedException();
+                }
             }
             else
             {
-                /*
-                if (global::noxLogger.Instance.enableExceptions)
+                if (Logger.enabledException)
                 {
                     throw new FileDoesntExistsException(this.path);
-                }*/
+                }
             }
             return (exists && canRead);
         }

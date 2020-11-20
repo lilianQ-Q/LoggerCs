@@ -10,6 +10,8 @@ namespace noxLogger.src.core
     {
         #region Fields
         private string path { get; set; }
+
+        private static string defaultSaveName = "Log_save_";
         #endregion
 
         #region Singleton
@@ -154,7 +156,7 @@ namespace noxLogger.src.core
         {
             if (String.IsNullOrEmpty(otherName))
             {
-                //Donne un nom de sauvegardepardefaut.
+                var ui = defaultSaveName + DateTime.Now.ToString("dd_M_yyyy__HH-mm") + ".log";
             }
             throw new NotImplementedException("Pas encore dev");
         }
