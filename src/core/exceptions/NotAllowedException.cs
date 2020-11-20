@@ -11,8 +11,7 @@ namespace noxLogger.src.core.exceptions
         /// <summary>
         /// Main constructor of the NotAllowedException class.
         /// </summary>
-        /// <param name="errorMessage"></param>
-        public NotAllowedException(string errorMessage) : base(errorMessage)
+        public NotAllowedException() : base("Error. It seems that you are not allowed to read this file. Do you have rights on it ?")
         {
 
         }
