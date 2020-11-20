@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="src\modules\httpLogger\src\core\entities\" />
     <Folder Include="src\modules\sqlLogger\src\core\entities\" />
     <Folder Include="src\modules\sqlLogger\src\core\exceptions\" />
