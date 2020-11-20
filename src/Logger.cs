@@ -17,6 +17,12 @@ namespace noxLogger.src
         #region Fields
 
         /// <summary>
+        /// Used to catch exception that concern the Logger
+        /// </summary>
+        public static bool enabledException = true;
+        internal static bool enabledExceptions;
+
+        /// <summary>
         /// This is the log file path of the current object.
         /// </summary>
         public string loggerFilePath { get; set; }
@@ -160,6 +166,11 @@ namespace noxLogger.src
         private bool CreatePath()
         {
             return (Writer.Instance.CreatePath(@"C:\temp\log\oui\non"));
+        }
+
+        public void Save()
+        {
+            Writer.Instance.Save();
         }
 
         /// <summary>
