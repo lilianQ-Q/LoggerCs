@@ -6,6 +6,9 @@ using static noxLogger.src.Logger;
 
 namespace noxLogger.src.core.entities
 {
+    /// <summary>
+    /// Custom object which represents a Log.
+    /// </summary>
     public class Log
     {
         #region Fields
@@ -60,7 +63,7 @@ namespace noxLogger.src.core.entities
         /// <returns></returns>
         public override string ToString()
         {
-            return ("[" + date.Day + "/" + date.Month + "/" + date.Year + "] " + date.Hour + ":" + date.Minute + ":" + date.Second + " " +this.logType.ToString().ToUpper() + " : " + this.message);
+            return ("[" + date.Day + "/" + date.Month + "/" + date.Year + "] " + date.Hour + ":" + date.Minute + ":" + date.Second + " " +this.logType.ToString().ToUpper() + " -> " + this.message);
         }
 
         /// <summary>
@@ -70,7 +73,15 @@ namespace noxLogger.src.core.entities
         /// <returns></returns>
         public static Log ToLog(string logLine)
         {
-            return (new Log("pas encore dev"));
+            string[] splitedLine = logLine.Split(new string[] { "->" }, StringSplitOptions.None);
+            string[] splitedIdentifier = splitedLine[0].Split(new string[] { " " }, StringSplitOptions.None);
+
+            string date = splitedIdentifier[0];
+            string time = splitedIdentifier[1];
+            string type = splitedIdentifier[2];
+            string log = splitedLine[1];
+
+            return (new Log((LogType)Enum.Parse(typeof(LogType), type.ToLower()), log));
         }
 
         #endregion
