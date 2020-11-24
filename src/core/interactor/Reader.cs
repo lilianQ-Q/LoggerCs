@@ -8,6 +8,9 @@ using static noxLogger.src.Logger;
 
 namespace noxLogger.src.core
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Reader
     {
         #region Fields
@@ -145,7 +148,7 @@ namespace noxLogger.src.core
             {
                 if (Logger.enabledException)
                 {
-                    throw new FileDoesntExistsException(this.path);
+                    throw new exceptions.FileNotFoundException(this.path);
                 }
             }
             return (exists && canRead);
