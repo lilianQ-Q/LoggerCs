@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>noxLogger</name>
+    </assembly>
+    <members>
+        <member name="T:noxLogger.src.core.entities.Log">
+            <summary>
+            Custom object which represents a Log.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.entities.Log.#ctor(System.String)">
+            <summary>
+            Default constructor of the Log class.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:noxLogger.src.core.entities.Log.#ctor(noxLogger.src.Logger.LogType,System.String)">
+            <summary>
+            Auxiliary constructor of the Log class.
+            </summary>
+            <param name="logType"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:noxLogger.src.core.entities.Log.Create">
+            <summary>
+            Method that allow the user to create / insert a new line in the current log file from the current object data.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.entities.Log.ToString">
+            <summary>
+            Method that allow the user to get a string format of the current object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.entities.Log.ToLog(System.String)">
+            <summary>
+            Method that allow the user to turn a string into a Log object.
+            </summary>
+            <param name="logLine"></param>
+            <returns></returns>
+        </member>
+        <member name="T:noxLogger.src.core.exceptions.FileNotFoundException">
+            <summary>
+            Custom exception casted when specified file does not exists.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.exceptions.FileNotFoundException.#ctor(System.String)">
+            <summary>
+            Main constructor of FileDoesntExists class.
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:noxLogger.src.core.exceptions.MissingModuleException">
+            <summary>
+            Throw this exception when a module is missing.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.exceptions.MissingModuleException.#ctor(System.String)">
+            <summary>
+            Main constructor of MissingModuleException.
+            </summary>
+            <param name="modulName"></param>
+        </member>
+        <member name="M:noxLogger.src.core.exceptions.NotAllowedException.#ctor">
+            <summary>
+            Main constructor of the NotAllowedException class.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.exceptions.IncorrectUrlException.#ctor(System.String)">
+            <summary>
+            Main constructor of IncorrectUrlException class.
+            </summary>
+            <param name="exceptionMessage"></param>
+        </member>
+        <member name="T:noxLogger.src.core.Reader">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.core.Reader.Instance">
+            <summary>
+            Main Singleton of the Reader class.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.Reader.#ctor">
+            <summary>
+            Main constructor of the Reader class.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.Reader.readFileAsLogList">
+            <summary>
+            Method that allow the user to read a file and return it as a Log list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.Reader.readFileAsStringList">
+            <summary>
+            Method that allow the user to read a file and return it as a string list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.Reader.lineParser(System.String)">
+            <summary>
+            Method that allow the user to parse a log file line and convert it in Log object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.Reader.checkExistAndReadable">
+            <summary>
+            Method that allow the user to check if a file exists and if this one is readable.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:noxLogger.src.core.Writer.Instance">
+            <summary>
+            Main singleton of the Writer class.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.#ctor">
+            <summary>
+            Main constructor of the Writer class.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.WriteData(System.String)">
+            <summary>
+            Method that allow the user to write into a file.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.CreateAndWrite(System.String)">
+            <summary>
+            Method that allow the user to create and write into a file.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.Write(System.String)">
+            <summary>
+            Method that allow the user to write a new data into a file.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.Flush">
+            <summary>
+            Method that allow the user to Flush the data of a log file.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.CreatePath(System.String)">
+            <summary>
+            Method that allow the user to create a new Path.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.core.Writer.Save(System.String)">
+            <summary>
+            Method that allow the user to Save a log file under another name.
+            </summary>
+            <param name="otherName"></param>
+        </member>
+        <member name="T:noxLogger.src.Logger">
+            <summary>
+            Main class of the Logger library.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.enabledException">
+            <summary>
+            Used to catch exception that concern the Logger
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.Logger.loggerFilePath">
+            <summary>
+            This is the log file path of the current object.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.Logger.internalLogHistory">
+            <summary>
+            This is a list of log writed by the object.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.Logger.usedModules">
+            <summary>
+            This is a list of the loaded modules inside the noxLogger.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.Logger.#ctor">
+            <summary>
+            Main constructor of the Logger class. It allows you to create a new Instance of Logger.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.Logger.#ctor(System.String)">
+            <summary>
+            Auxiliary constructor of the Logger class.
+            </summary>
+            <param name="loggerFilePath"></param>
+        </member>
+        <member name="M:noxLogger.src.Logger.Log(noxLogger.src.Logger.LogType,System.String)">
+            <summary>
+            Main method of the Logger class. Used to log a message with their logType.
+            </summary>
+            <param name="logType"></param>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Trace(System.String)">
+            <summary>
+            Method that allow the user to create a new Trace log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Debug(System.String)">
+            <summary>
+            Method that allow the user to create a new Debug log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Info(System.String)">
+            <summary>
+            Method that allow the user to create a new Info log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Success(System.String)">
+            <summary>
+            Method that allow the user to create a new Success log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Warn(System.String)">
+            <summary>
+            Method that allow the user to create a new Warn log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Error(System.String)">
+            <summary>
+            Method that allow the user to create a new Error log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Fatal(System.String)">
+            <summary>
+            Method that allow the user to create a new Fatal log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Log(System.String)">
+            <summary>
+            Default log method. Log as a Info log.
+            </summary>
+            <param name="logMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.GetLogsAsString">
+            <summary>
+            Method that allow the user to get logs from the main log file as string list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.GetLogsAsLog">
+            <summary>
+            Method that allow the uyser to get log from the main log file as Log object List.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.Flush">
+            <summary>
+            Method that allow the user to flush a log file.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.Logger.Save(System.String)">
+            <summary>
+            Method that allow the user to Save a log file under another name.
+            </summary>
+            <param name="newName"></param>
+        </member>
+        <member name="M:noxLogger.src.Logger.AddModule(System.String)">
+            <summary>
+            Method that allow the user to tell to the Logger that he is using this module. Useful in debugging cases.
+            </summary>
+            <param name="modulName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:noxLogger.src.Logger.LogType">
+            <summary>
+            Enumeration for the type of log.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.trace">
+            <summary>
+            Type de log pour l'Entrée et sortie de méthodes.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.debug">
+            <summary>
+            Type de log pour l'affichage de valeur de données.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.info">
+            <summary>
+            Type de log pour informer du début et de la fin de l'éxécution d'un traitement long, chargement d'un fichier de configuration etc.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.success">
+            <summary>
+            Type de log pour informer qu'une action a réussi.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.warn">
+            <summary>
+            Type de log pour avertir que certaines données sont invalides.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.error">
+            <summary>
+            Type de log concernant toutes les exceptions capturées qui n'empêche pas l'application de fonctionner.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.LogType.fatal">
+            <summary>
+            Type de log concernant les exceptions qui empêche l'application de fonctionner.
+            </summary>
+        </member>
+        <member name="F:noxLogger.src.Logger.token">
+            <summary>
+            This is the token of the application's user.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.Logger.PostRequest">
+            <summary>
+            Method that allow the user to send a post request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.GetHttpLogger">
+            <summary>
+            Method that allow the user to get a new HttpLogger.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.Logger.LogSQL(System.String)">
+            <summary>
+            Method that allow the user to log a sql query. This one is parsed before insert.
+            </summary>
+            <param name="query"></param>
+        </member>
+        <member name="M:noxLogger.src.modules.httpLogger.src.core.exceptions.InvalidTokenException.#ctor">
+            <summary>
+            Main constructor of the InvalidTokenException class.
+            </summary>
+        </member>
+        <member name="T:noxLogger.src.modules.httpLogger.src.HttpLogger">
+            <summary>
+            Module that is used to send logs to an external api.
+            Developped by Lilian DAMIENS - 2020
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.httpLogger.src.HttpLogger.token">
+            <summary>
+            This is the token of the httpLogger.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.httpLogger.src.HttpLogger.apiUrl">
+            <summary>
+            Url of the api you want to insert data in. 
+            TODO : Make a list of apiUrl for multi insert
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.httpLogger.src.HttpLogger.apiUrlList">
+            <summary>
+            Api url list that you want to insert data in.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.modules.httpLogger.src.HttpLogger.#ctor(System.String,System.String)">
+            <summary>
+            Main constructor of the HttpLogger class.
+            </summary>
+            <param name="token"></param>
+            <param name="apiUrl"></param>
+        </member>
+        <member name="M:noxLogger.src.modules.httpLogger.src.HttpLogger.PostLog(System.String,System.String,System.Boolean)">
+            <summary>
+            Method that allow the user to send data to the default api.
+            Default api : logcenter.liliandamiens.fr
+            </summary>
+            <param name="logData"></param>
+            <param name="apiUrl"></param>
+            <param name="waitHttpResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.modules.httpLogger.src.HttpLogger.urlReachable">
+            <summary>
+            DEPRECATED
+            Method that allow the user to check if the current Url is reachable or not.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.modules.httpLogger.src.HttpLogger.urlReachable(System.String)">
+            <summary>
+            Method that allow the user to check if a Url is reachable or not.
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:noxLogger.src.modules.IModule.GetAuthor">
+            <summary>
+            Method that allow the user to get a Module's author information. should be in static
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:noxLogger.src.modules.Module">
+            <summary>
+            Mother class for other modules.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.Module.name">
+            <summary>
+            Name of the developer that developed the module.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.Module.lastname">
+            <summary>
+            Lastname of the developer that developed the module.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.Module.month">
+            <summary>
+            Creation month of the module.
+            </summary>
+        </member>
+        <member name="P:noxLogger.src.modules.Module.year">
+            <summary>
+            Creation year of the module.
+            </summary>
+        </member>
+        <member name="M:noxLogger.src.modules.Module.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Method that allow you to create a new Module.
+            </summary>
+            <param name="name"></param>
+            <param name="lastName"></param>
+            <param name="month"></param>
+            <param name="year"></param>
+        </member>
+        <member name="M:noxLogger.src.modules.Module.GetAuthor">
+            <summary>
+            Method that allow the user to get module author's information.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:noxLogger.src.modules.sqlLogger.src.core.entities.Parser.Instance">
+            <summary>
+            Singleton of the Parser class.
+            </summary>
+        </member>
+        <member name="T:noxLogger.src.modules.sqlLogger.src.core.SqlLogger">
+            <summary>
+            DEPRECATED, call it SqlParser instead.
+            </summary>
+        </member>
+    </members>
+</doc>
