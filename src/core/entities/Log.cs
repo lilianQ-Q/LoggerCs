@@ -13,8 +13,17 @@ namespace noxLogger.src.core.entities
     {
         #region Fields
 
+        /// <summary>
+        /// This is the alert level of the log.
+        /// </summary>
         public LogType logType { get; set; }
+        /// <summary>
+        /// Creation date of the log.
+        /// </summary>
         public DateTime date { get; set; }
+        /// <summary>
+        /// Body of the log alert.
+        /// </summary>
         public string message { get; set; }
 
         #endregion

@@ -20,7 +20,6 @@ namespace noxLogger.src
         /// Used to catch exception that concern the Logger
         /// </summary>
         public static bool enabledException = true;
-        internal static bool enabledExceptions;
 
         /// <summary>
         /// This is the log file path of the current object.
@@ -74,6 +73,16 @@ namespace noxLogger.src
             Log newLog = new Log(logType, log);
             this.internalLogHistory.Add(newLog);
             return (newLog.Create());
+        }
+
+        /// <summary>
+        /// Method that allow the user to create a new Trace log.
+        /// </summary>
+        /// <param name="logMessage"></param>
+        /// <returns></returns>
+        public bool Trace(string logMessage)
+        {
+            return (this.Log(LogType.trace, logMessage));
         }
 
         /// <summary>
@@ -147,12 +156,22 @@ namespace noxLogger.src
         }
 
         /// <summary>
-        /// Method that allow the user to get logs from the main log file.
+        /// Method that allow the user to get logs from the main log file as string list.
         /// </summary>
         /// <returns></returns>
-        public List<string> GetLogs()
+        public List<string> GetLogsAsString()
         {
             return (Reader.Instance.readFileAsStringList());
+        }
+
+        /// <summary>
+        /// Method that allow the uyser to get log from the main log file as Log object List.
+        /// </summary>
+        /// <returns></returns>
+        public List<Log> GetLogsAsLog()
+        {
+            //Peut être améliorer en faisait GetLogs<string>() ou GetLogs<Log>()
+            return (Reader.Instance.readFileAsLogList());
         }
 
         /// <summary>
@@ -168,9 +187,13 @@ namespace noxLogger.src
             return (Writer.Instance.CreatePath(@"C:\temp\log\oui\non"));
         }
 
-        public void Save()
+        /// <summary>
+        /// Method that allow the user to Save a log file under another name.
+        /// </summary>
+        /// <param name="newName"></param>
+        public void Save(string newName)
         {
-            Writer.Instance.Save();
+            Writer.Instance.Save(newName);
         }
 
         /// <summary>
@@ -197,12 +220,34 @@ namespace noxLogger.src
         /// Enumeration for the type of log.
         /// </summary>
         public enum LogType
-        {
+        {   
+            /// <summary>
+            /// Type de log pour l'Entrée et sortie de méthodes.
+            /// </summary>
+            trace,
+            /// <summary>
+            /// Type de log pour l'affichage de valeur de données.
+            /// </summary>
             debug,
+            /// <summary>
+            /// Type de log pour informer du début et de la fin de l'éxécution d'un traitement long, chargement d'un fichier de configuration etc.
+            /// </summary>
             info,
+            /// <summary>
+            /// Type de log pour informer qu'une action a réussi.
+            /// </summary>
             success,
+            /// <summary>
+            /// Type de log pour avertir que certaines données sont invalides.
+            /// </summary>
             warn,
+            /// <summary>
+            /// Type de log concernant toutes les exceptions capturées qui n'empêche pas l'application de fonctionner.
+            /// </summary>
             error,
+            /// <summary>
+            /// Type de log concernant les exceptions qui empêche l'application de fonctionner.
+            /// </summary>
             fatal
         }
 

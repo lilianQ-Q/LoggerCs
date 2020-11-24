@@ -4,7 +4,10 @@ using System.Text;
 
 namespace noxLogger.src.modules.sqlLogger.src.core
 {
-    public class SqlLogger : IModule
+    /// <summary>
+    /// DEPRECATED, call it SqlParser instead.
+    /// </summary>
+    public class SqlLogger : Module
     {
         #region Fields
 
@@ -14,7 +17,7 @@ namespace noxLogger.src.modules.sqlLogger.src.core
 
         #region Constructor
 
-        public SqlLogger(string query)
+        public SqlLogger(string query) : base ("Lilian", "Damiens", "November", "2020")
         {
             this.query = query;
         }
@@ -27,11 +30,6 @@ namespace noxLogger.src.modules.sqlLogger.src.core
         {
             throw new NotImplementedException("Pas encore dev");
             return ("oui");
-        }
-
-        public string GetAuthor()
-        {
-            return ("Lilian Damiens - 2020");
         }
 
         #endregion
