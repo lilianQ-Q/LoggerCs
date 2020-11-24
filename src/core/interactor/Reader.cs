@@ -80,6 +80,7 @@ namespace noxLogger.src.core
             else
             {
                 logList.Add(new Log(LogType.error, "Cannot read file. Abort. Enable exceptions to check what's wrong."));
+                //TODO : If exceptions enabled, then throw new NotAllowedException
             }
             return (logList);
         }
@@ -110,6 +111,7 @@ namespace noxLogger.src.core
             else
             {
                 logList.Add("Cannot read file. Abort. Enable exceptions to check what's wrong.");
+                //TODO : If exceptions enabled, then throw new NotAllowedException
             }
             return (logList);
         }

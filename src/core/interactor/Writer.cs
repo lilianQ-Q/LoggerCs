@@ -96,7 +96,7 @@ namespace noxLogger.src.core
         /// <summary>
         /// Method that allow the user to write a new data into a file.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="data"></param>
         private bool Write(string data)
         {
             bool isOk = true;
