@@ -80,7 +80,11 @@ namespace noxLogger.src.core
             else
             {
                 logList.Add(new Log(LogType.error, "Cannot read file. Abort. Enable exceptions to check what's wrong."));
-                //TODO : If exceptions enabled, then throw new NotAllowedException
+                if (Logger.enabledException)
+                {
+                    logList.Add(new Log(LogType.fatal, "Exceptions activées. Impossible de lire le fichier " + this.path));
+                    throw new NotAllowedException();
+                }
             }
             return (logList);
         }
@@ -111,7 +115,11 @@ namespace noxLogger.src.core
             else
             {
                 logList.Add("Cannot read file. Abort. Enable exceptions to check what's wrong.");
-                //TODO : If exceptions enabled, then throw new NotAllowedException
+                if (Logger.enabledException)
+                {
+                    logList.Add(new Log(LogType.fatal, "Exceptions activées. Impossible de lire le fichier " + this.path));
+                    throw new NotAllowedException();
+                }
             }
             return (logList);
         }
@@ -157,6 +165,5 @@ namespace noxLogger.src.core
         }
 
         #endregion
-
     }
 }
