@@ -11,5 +11,22 @@ namespace noxLogger.src.modules
         /// </summary>
         /// <returns></returns>
         string GetAuthor();
+
+        /// <summary>
+        /// Name of the module's author.
+        /// </summary>
+        string name { get ; set; }
+        /// <summary>
+        /// Lastname of the module author.
+        /// </summary>
+        string lastname { get; set; }
+        /// <summary>
+        /// Creation month of the module.
+        /// </summary>
+        string month { get; set; }
+        /// <summary>
+        /// Creation year of the module.
+        /// </summary>
+        string year { get; set; }
     }
 }
