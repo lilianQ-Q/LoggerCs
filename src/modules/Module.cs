@@ -60,6 +60,10 @@ namespace noxLogger.src.modules
             return("Module developed by " + this.name + " " + this.lastname + " " + this.month + " " + this.year);
         }
 
+        /// <summary>
+        /// Method that allow the user to disable this mpodule.
+        /// Useful when an official module is still in development even if the librarie has been released.
+        /// </summary>
         public void Disable()
         {
             //Disable the module inside the moduleManager / Add to blackList
